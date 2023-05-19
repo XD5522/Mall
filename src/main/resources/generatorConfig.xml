@@ -31,7 +31,7 @@
         <!--指定生成model的路径-->
         <javaModelGenerator targetPackage="com.example.mall.mbg.model" targetProject="D:\mine\github\Mall\src\main\java"/>
         <!--指定生成mapper.xml的路径-->
-        <sqlMapGenerator targetPackage="com.macro.mall.tiny.mbg.mapper" targetProject="D:\mine\github\Mall\src\main\resources"/>
+        <sqlMapGenerator targetPackage="com.example.mall.mbg.mapper" targetProject="D:\mine\github\Mall\src\main\resources"/>
         <!--指定生成mapper接口的的路径-->
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.mall.mbg.mapper"
                              targetProject="D:\mine\github\Mall\src\main\java"/>
