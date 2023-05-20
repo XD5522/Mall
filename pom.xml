@@ -17,10 +17,13 @@
         <java.version>17</java.version>
     </properties>
     <dependencies>
+        <!-- 引入 3.0.0 版本的 mybatis-spring-boot-starter（正式版） -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>3.0.0</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
