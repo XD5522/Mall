@@ -4,6 +4,8 @@ import com.example.mall.common.api.CommonPage;
 import com.example.mall.common.api.CommonResult;
 import com.example.mall.mbg.model.PmsBrand;
 import com.example.mall.service.PmsBrandService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Slf4j
+@Api(tags = "PmsBrandController", description = "商品品牌管理")
 @RestController
 @RequestMapping("/brand")
 public class PmsBrandController {
@@ -22,6 +25,7 @@ public class PmsBrandController {
      * 获取列表
      * @return 品牌列表
      */
+    @ApiOperation("获取所有品牌列表")
     @GetMapping("listAll")
     public CommonResult<List<PmsBrand>> getBrandList(){
         return CommonResult.success(service.listAllBrand());
@@ -33,6 +37,7 @@ public class PmsBrandController {
      * @return commonResult
      */
     @PostMapping("/create")
+    @ApiOperation("添加品牌")
     public CommonResult createBrand(@RequestBody PmsBrand pmsBrand){
         CommonResult commonResult;
         int count = service.createBrand(pmsBrand);
@@ -54,6 +59,7 @@ public class PmsBrandController {
      * @return
      */
     @PostMapping("/update/{id}")
+    @ApiOperation("更新指定id品牌信息")
     public CommonResult updateBrand(@PathVariable("id") long id, @RequestBody PmsBrand pmsBrandDto, BindingResult result){
         CommonResult commonResult;
         int count = service.updateBrand(id,pmsBrandDto);
@@ -72,6 +78,7 @@ public class PmsBrandController {
      * @param id
      * @return CommonResult
      */
+    @ApiOperation("删除指定id的品牌")
     @GetMapping("/delete/{id}")
     public CommonResult deleteBrand(@PathVariable long id){
         int count = service.deleteBrand(id);
@@ -89,6 +96,7 @@ public class PmsBrandController {
      * @param id
      * @return
      */
+    @ApiOperation("分页查询品牌列表")
     @GetMapping("/GetBrand/{id}")
     public CommonResult<PmsBrand> GetBrand(@PathVariable long id){
         return CommonResult.success(service.getBrand(id));
@@ -100,6 +108,7 @@ public class PmsBrandController {
      * @param pageSize 页面大小
      * @return
      */
+    @ApiOperation("获取指定id的品牌详情")
     @GetMapping("/list")
     public CommonResult<CommonPage<PmsBrand>> ListBrand(@RequestParam(value = "pageNum",defaultValue = "1")Integer pageNum,
                                                         @RequestParam(value="pageSize",defaultValue = "3")Integer pageSize){
